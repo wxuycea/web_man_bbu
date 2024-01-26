@@ -37,7 +37,7 @@
     <section id="register-section">
         <h3>회원가입</h3>
 
-        <form action="../register-process.php" method="post">
+        <form action="../register-process.php" method="post" id="register-form">
             <label for="username">이름:</label>
             <input type="text" id="username" name="username" required>
 
@@ -77,6 +77,8 @@
         © 2024 CodeSnack. All rights reserved.
     </footer>
     <script>
+        var idCheck = false;
+        var nicknameCheck = false;
         document.getElementById("id_check_button").addEventListener("click", function () {
             var id = document.getElementById("id").value;
 
@@ -92,6 +94,7 @@
                     document.getElementById('id_check_result').innerHTML = message;
 
                     if (message.includes('사용 가능')) {
+                        idCheck = true;
                         document.getElementById('id_check_button').remove();
                         document.getElementById('id').disabled = true;
                     }
@@ -112,10 +115,16 @@
                     document.getElementById('nickname_check_result').innerHTML = message;
 
                     if (message.includes('사용 가능')) {
+                        nicknameCheck = true;
                         document.getElementById('nickname_check_button').remove();
                         document.getElementById('nickname').disabled = true;
                     }
                 });
+        });
+        document.getElementById("submit_button").addEventListener("click", function () {
+            if (idCheck && nicknameCheck) {
+                document.getElementById("register-form").submit();
+            }
         });
     </script>
 
