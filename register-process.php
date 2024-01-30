@@ -35,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 unset($_SESSION['id_duplicate']);
                 unset($_SESSION['nickname_duplicate']);
                 echo "<script>alert('회원가입에 성공하였습니다.');</script>";
-                echo "<script>location.href = 'templates/login.html';</script>";
+                echo "<script>location.href = 'frontend/login.php';</script>";
             } else {
                 echo "<script>alert('회원가입에 실패하였습니다. 다시 시도해주세요.');</script>";
-                echo "<script>location.href = 'templates/register.html';</script>";
+                echo "<script>location.href = 'frontend/register.php';</script>";
             }
         } else {
             echo "<script>alert('중복 확인이 완료되지 않았습니다.');</script>";
