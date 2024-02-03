@@ -9,24 +9,16 @@
 </head>
 
 <body>
-  <header>
-    <div class="header-top">
-      <a href="login.php">로그인</a>
-      <a href="register.php">회원가입</a>
-    </div>
-    <div class="header-main">
-      <h1 class="header-title"><a href="index.php">CodeSnack</a></h1>
-    </div>
-  </header>
+    <?php include '../header.php' ?>
 
   <nav>
-    <!-- 검색 창 추가 -->
     <div class="search-box">
       <input type="text" placeholder="검색어를 입력하세요" />
       <button type="button">검색</button>
     </div>
     <div class="nav-left">
-      <a href="index.php">홈</a> | <a href="notice-board.php">공지사항</a> |
+      <a href="index.php">홈</a> |
+      <a href="notice-board.php">공지사항</a> |
       <a href="free-board.php">자유 게시판</a> |
       <a href="market-board.php">장터 게시판</a> |
       <a href="suggestions-board.php">건의 게시판</a> |
