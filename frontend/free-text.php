@@ -70,10 +70,10 @@
           <div class="post">
             <h2>${post.title}</h2>
             <p>${post.content}</p>
-            <img src="${post.image}" alt="Post Image">
+            <img src="../images/${post.image}" alt="${post.title}">
           </div>
         `;
-          document.querySelector('section').appendChild(postElement);
+          imageContainer.appendChild(postElement);
         });
       })
   </script>

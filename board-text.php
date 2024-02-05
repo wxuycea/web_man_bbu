@@ -17,18 +17,4 @@ if ($result) {
         $rows[] = $row;
     }
 }
-?>
-
-<form>
-    <div class="text">
-        <div class="title"> <!-- 차례대로 -->
-            <?php echo $rows[5]['title']; ?>
-        </div>
-        <div class="content">
-            <?php echo $rows[5]['content']; ?>
-        </div>
-        <div class="image"> <!-- 이미지 가져오기 수정 -->
-            <?php echo $rows[5]['image']; ?>
-        </div>
-    </div>
-</form>
+echo json_encode($rows);
