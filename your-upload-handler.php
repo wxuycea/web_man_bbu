@@ -30,7 +30,7 @@ switch ($board) {
     case 'free-board':
         $post_type = 1;
         break;
-    case 'information_board':
+    case 'market_board':
         $post_type = 2;
         break;
     case 'suggestions-board':

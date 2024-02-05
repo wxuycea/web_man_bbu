@@ -29,52 +29,7 @@
     </nav>
 
     <section>
-        <!-- 자유 게시물만 표시 -->
-        <a href="market-text.php">
-            <article class="free-post">
-                <h2>장터 게시물 1</h2>
-                <p>게시물 내용이 여기에 들어갑니다.</p>
-            </article>
-        </a>
-
-        <a href="market-text.php">
-            <article class="free-post">
-                <h2>장터 게시물 2</h2>
-                <p>게시물 내용이 여기에 들어갑니다.</p>
-            </article>
-        </a>
-        <a href="market-text.php">
-            <article class="free-post">
-                <h2>장터 게시물 2</h2>
-                <p>게시물 내용이 여기에 들어갑니다.</p>
-            </article>
-        </a>
-        <a href="market-text.php">
-            <article class="free-post">
-                <h2>장터 게시물 2</h2>
-                <p>게시물 내용이 여기에 들어갑니다.</p>
-            </article>
-        </a>
-        <a href="market-text.php">
-            <article class="free-post">
-                <h2>장터 게시물 2</h2>
-                <p>게시물 내용이 여기에 들어갑니다.</p>
-            </article>
-        </a>
-        <a href="market-text.php">
-            <article class="free-post">
-                <h2>장터 게시물 2</h2>
-                <p>게시물 내용이 여기에 들어갑니다.</p>
-            </article>
-        </a>
-        <a href="market-text.php">
-            <article class="free-post">
-                <h2>장터 게시물 2</h2>
-                <p>게시물 내용이 여기에 들어갑니다.</p>
-            </article>
-        </a>
-
-        <!-- 추가적인 자유 게시물들을 동적으로 표시하거나, 페이지를 넘기는 등의 기능을 구현할 수 있습니다. -->
+        <?php include '../get-postid.php' ?>
     </section>
 
     <footer>

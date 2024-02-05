@@ -12,9 +12,16 @@ $query = "SELECT * FROM post";
 $result = $mysqli->query($query);
 $rows = array();
 
-if ($result) {
+if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $rows[] = $row;
+        $postId = $row['postId'];
+        $userId = $row['userId'];
+        $postType = $row['postType'];
+        $title = $row['title'];
+        $content = $row['content'];
+        $image = $row['image'];
+        $timeStamp = $row['timeStamp'];
     }
 }
 echo json_encode($rows);
