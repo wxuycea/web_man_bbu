@@ -29,7 +29,7 @@
   </nav>
 
   <section>
-    <?php include '../connet-data.php' ?>
+    <?php include '../connect-data.php' ?>
     <?php
     $query1 = "SELECT postType FROM post";
     $result1 = $mysqli->query($query1);
@@ -47,8 +47,8 @@
               $postid = $row2['postId'];
               $title = $row2['title'];
               $content = $row2['content'];
-              echo '<a href="free-text.php?postid=' . $postid . '" class="free-post-link">';
-              echo '<article class="free-post">';
+              echo '<a href="suggestions-text.php?postid=' . $postid . '" class="suggestions-post-link">';
+              echo '<article class="suggestions-post">';
               echo '<h2>' . $title . '</h2>';
               echo '<p>' . $content . '</p>';
               echo '</article>';

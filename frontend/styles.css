@@ -238,13 +238,14 @@ article:hover {
 }
 /*상세정보*/
 .text {
-    margin-top: 5px;
-    margin-bottom: 60px;
+    margin: 20px 20px 60px;
     color: #333;
     padding: 8px 16px;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 .text .title {
     font-size: 30px;
@@ -261,7 +262,11 @@ img {
 
 /*댓글*/
 .comment_form {
-    margin-top: 20px;
+    margin: 30px 5px 10px;
+    color: #333;
+    padding: 8px 16px;
+    background-color: #fff;
+    box-sizing: border-box;
 }
 .comment_form h2 {
     font-size: 20px;
@@ -291,7 +296,11 @@ img {
 }
 
 .comment_list {
-    margin-top: 10px;
+    margin: 5px 5px 60px;
+    color: #333;
+    padding: 8px 16px;
+    background-color: #fff;
+    box-sizing: border-box;
 }
 
 .comment_list h2 {

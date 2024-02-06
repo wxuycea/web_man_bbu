@@ -29,7 +29,7 @@
   </nav>
 
   <section>
-    <?php include '../connet-data.php' ?>
+    <?php include '../connect-data.php' ?>
     <?php
     $query1 = "SELECT postType FROM post";
     $result1 = $mysqli->query($query1);
