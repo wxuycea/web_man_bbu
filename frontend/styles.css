@@ -237,23 +237,28 @@ article:hover {
     background-color: #f0f0f0; /* 마우스 호버 시 색상 변경 */
 }
 /*상세정보*/
-.text{
+.text {
     margin-top: 5px;
+    margin-bottom: 60px;
     color: #333;
     padding: 8px 16px;
-    border: none;
+    border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
 }
-.text .title{
+.text .title {
     font-size: 30px;
     margin-bottom: 5px;
-    
 }
-.text .content{
+.text .content {
     font-size: 20px;
     margin-bottom: 5px;
 }
+img {
+    display: block;
+    margin: 0px auto;
+}
+
 /*댓글*/
 .comment_form {
     margin-top: 20px;
@@ -273,7 +278,6 @@ article:hover {
     border: 1px solid #ddd;
     resize: vertical;
 }
-
 .comment_form button {
     border: none;
     padding: 8px 12px;
@@ -287,7 +291,7 @@ article:hover {
 }
 
 .comment_list {
-    margin-top: 80px;
+    margin-top: 10px;
 }
 
 .comment_list h2 {
