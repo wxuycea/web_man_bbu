@@ -11,24 +11,17 @@ $mysqli = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 // post_type
 $request_uri = $_SERVER['REQUEST_URI'];
-switch ($request_uri) {
-    case strpos($request_uri, 'notice-board.php') !== false:
-        $post_type = 0;
-        break;
-    case strpos($request_uri, 'free-board.php') !== false:
-        $post_type = 1;
-        break;
-    case strpos($request_uri, 'market-board.php') !== false:
-        $post_type = 2;
-        break;
-    case strpos($request_uri, 'suggestions-board.php') !== false:
-        $post_type = 3;
-        break;
-    case strpos($request_uri, 'qna-board.php') !== false:
-        $post_type = 4;
-        break;
-    default:
-        break;
+$post_type = "";
+if (strpos($request_uri, 'notice-board.php') !== false) {
+    $post_type = 0;
+} elseif (strpos($request_uri, 'free-board.php') !== false) {
+    $post_type = 1;
+} elseif (strpos($request_uri, 'market-board.php') !== false) {
+    $post_type = 2;
+} elseif (strpos($request_uri, 'suggestions-board.php') !== false) {
+    $post_type = 3;
+} elseif (strpos($request_uri, 'qna-board.php') !== false) {
+    $post_type = 4;
 }
 
 if (isset($_GET['page'])) {
@@ -50,12 +43,12 @@ $result = $mysqli->query($query);
 
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $postid = $row['postId'];
+        $post_id = $row['postId'];
         $title = $row['title'];
         $timestamp = $row['timeStamp'];
         $nickname = $row['nickname'];
 
-        echo '<a href="free-text.php?postid=' . $postid . '" class="free-post-link">';
+        echo '<a href="free-text.php?postid=' . $post_id . '" class="free-post-link">';
         echo '<article class="free-post">';
         echo '<h3>' . $title . '</h3>';
         echo '<p>' . $timestamp . '</p>';

@@ -6,38 +6,29 @@ ini_set("display_errors", 1);
 
 session_start();
 
-$request_uri = $_SERVER['REQUEST_URI'];
-echo "<script>alert('$request_uri')</script>";
-echo "<script>alert('0')</script>";
 $user_id = $_SESSION['userId'];
 $post_id = $_GET['postid'];
 $comment = $_POST['comment'];
 
 // current_time
 date_default_timezone_set('Asia/Seoul');
-$current_time = date('Y-m-d H:i:s');
+$current_time = date('Y-m-d H:i:ㅋs');
 
 // post_type
-switch ($request_uri) {
-    case strpos($request_uri, 'notice-text.php') !== false:
-        $post_type = 0;
-        break;
-    case strpos($request_uri, 'free-text.php') !== false:
-        $post_type = 1;
-        echo "<script>alert('1');</script>";
-        break;
-    case strpos($request_uri, 'market-text.php') !== false:
-        $post_type = 2;
-        break;
-    case strpos($request_uri, 'suggestions-text.php') !== false:
-        $post_type = 3;
-        break;
-    case strpos($request_uri, 'qna-text.php') !== false:
-        $post_type = 4;
-        break;
-    default:
-        break;
+$uri = $_SERVER['HTTP_REFERER'];
+echo "<script>alert('$uri')</script>";
+$post_type = "";
+
+if (strpos($uri, 'free-text.php') !== false) {
+    $post_type = 1;
+} elseif (strpos($uri, 'market-text.php') !== false) {
+    $post_type = 2;
+} elseif (strpos($uri, 'suggestions.php') !== false) {
+    $post_type = 3;
+} elseif (strpos($uri, 'qna.php') !== false) {
+    $post_type = 4;
 }
+
 
 $db_host = "localhost";
 $db_user = "codesnack";
@@ -51,20 +42,17 @@ echo "<script>alert('2');</script>";
 if ($mysqli->affected_rows > 0) {
     echo "<script>alert('3');</script>";
     switch ($post_type) {
-        case 0:
-            $post_type = "notice-board.php";
-            break;
         case 1:
-            $post_type = "free-board.php";
+            $post_type = "free-text.php";
             break;
         case 2:
-            $post_type = "market-board.php";
+            $post_type = "market-text.php";
             break;
         case 3:
-            $post_type = "suggestions-board.php";
+            $post_type = "suggestions-text.php";
             break;
         case 4:
-            $post_type = "qna-board.php";
+            $post_type = "qna-text.php";
             break;
         default:
             break;
