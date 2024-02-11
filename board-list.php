@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
 $db_host = "localhost";
 $db_user = "codesnack";
 $db_password = "";
@@ -29,7 +26,8 @@ if (isset($_GET['page'])) {
 } else {
     $page = 1;
 }
-$list_num = 9; 
+
+$list_num = 9;
 $start = ($page - 1) * $list_num;
 
 $query = "SELECT post.postId, post.title, post.timeStamp, user.nickname
@@ -65,14 +63,34 @@ $total_row = $total_result->fetch_assoc();
 $total_posts = $total_row['total_count'];
 $total_page = ceil($total_posts / $list_num);
 
+switch ($post_type) {
+    case 0:
+        $post_type = "notice-board.php";
+        break;
+    case 1:
+        $post_type = "free-board.php";
+        break;
+    case 2:
+        $post_type = "market-board.php";
+        break;
+    case 3:
+        $post_type = "suggestions-board.php";
+        break;
+    case 4:
+        $post_type = "qna-board.php";
+        break;
+    default:
+        break;
+}
+
 echo '<div class="pagination">';
 if ($page > 1) {
-    echo '<a class="pre" href="free-board.php?page=' . ($page - 1) . '">이전</a>';
+    echo '<a class="pre" href="' . $post_type . '?page=' . ($page - 1) . '">이전</a>';
 }
 for ($i = 1; $i <= $total_page; $i++) {
-    echo '<a class="num" href="free-board.php?page=' . $i . '">' . $i . '</a>';
+    echo '<a class="num" href="' . $post_type . '?page=' . $i . '">' . $i . '</a>';
 }
 if ($page < $total_page) {
-    echo '<a class="next" href="free-board.php?page=' . ($page + 1) . '">다음</a>';
+    echo '<a class="next" href="' . $post_type . '?page=' . ($page + 1) . '">다음</a>';
 }
 echo '</div>';

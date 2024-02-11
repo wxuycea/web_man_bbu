@@ -1,9 +1,4 @@
 <?php
-// 오류 출력 (삭제)
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-// userId, postId
-
 session_start();
 
 $user_id = $_SESSION['userId'];
@@ -16,7 +11,6 @@ $current_time = date('Y-m-d H:i:ㅋs');
 
 // post_type
 $uri = $_SERVER['HTTP_REFERER'];
-echo "<script>alert('$uri')</script>";
 $post_type = "";
 
 if (strpos($uri, 'free-text.php') !== false) {
@@ -29,7 +23,6 @@ if (strpos($uri, 'free-text.php') !== false) {
     $post_type = 4;
 }
 
-
 $db_host = "localhost";
 $db_user = "codesnack";
 $db_password = "";
@@ -38,9 +31,8 @@ $db_name = "codesnack";
 $mysqli = new mysqli($db_host, $db_user, $db_password, $db_name);
 $query = "INSERT INTO comment (userId, postId, comment, timeStamp) VALUES('$user_id', '$post_id', '$comment', '$current_time')";
 $mysqli->query($query);
-echo "<script>alert('2');</script>";
+
 if ($mysqli->affected_rows > 0) {
-    echo "<script>alert('3');</script>";
     switch ($post_type) {
         case 1:
             $post_type = "free-text.php";
