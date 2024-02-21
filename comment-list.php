@@ -1,10 +1,5 @@
 <?php
-$db_host = "localhost";
-$db_user = "codesnack";
-$db_password = "";
-$db_name = "codesnack";
-
-$mysqli = new mysqli($db_host, $db_user, $db_password, $db_name);
+include "connect-db.php";
 
 // post_type
 $request_uri = $_SERVER['REQUEST_URI'];
@@ -30,7 +25,7 @@ $query = "SELECT comment.comment, comment.Timestamp, user.nickname
 
 $result = $mysqli->query($query);
 
-if ($result && $result->num_rows > 0) {
+if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $comment = $row['comment'];
         $timestamp = $row['Timestamp'];
